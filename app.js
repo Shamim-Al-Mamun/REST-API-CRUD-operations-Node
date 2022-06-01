@@ -3,12 +3,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const usersRouter = require("./routes/users.route");
 
-app.use(cors());
 const app = express();
+app.use(cors());
+
 app.use(bodyParser.json());
-app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static("public"));
 app.use("/users", usersRouter);
 
 // home route
